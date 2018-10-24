@@ -1,0 +1,29 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#register_form{
+  border: 2px solid cyan;
+}
+#register_form .inputs  {
+  display: flex;
+  flex-direction: column;
+}
+#register_form .inputs > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#container {
+  padding: 4rem 0;
+}
+.inputs :not(:last-child){
+  margin-bottom: 0.5rem;
+}
