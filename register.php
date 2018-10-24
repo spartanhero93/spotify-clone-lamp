@@ -1,40 +1,5 @@
 <?php
-
-/** Functions */
-
-function sanitizePassword($inputText)
-{
-  $inputText = strip_tags($inputText);
-  return $inputText;
-}
-function sanitizeUsername($inputText)
-{
-  $inputText = strip_tags($inputText);
-  $inputText = str_replace(" ", "", $inputText);
-  return $inputText;
-}
-function sanitizeFormString($inputText)
-{
-  $inputText = sanitizeUsername($inputText);
-  $inputText = ucfirst(strtolower($inputText));
-  return $inputText;
-}
-
-if (isset($_POST['registerButton'])) {
-
-  /** Variables */
-  $firstName = sanitizeFormString($_POST['inputs__first_name']);
-  $lastName = sanitizeFormString($_POST['inputs__last_name']);
-
-  $username = sanitizeUsername($_POST['register_username']);
-  $email = sanitizeFormString($_POST['register_email']);
-  $email_confirm = sanitizeFormString($_POST['register_email_confirm']);
-
-  $password = sanitizePassword($_POST['register_password']);
-  $password_confirm = sanitizePassword($_POST['register_password_confirm']);
-}
-
-
+include('./includes/handlers/register-handler.php')
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +12,7 @@ if (isset($_POST['registerButton'])) {
 </head>
 <body>
 
-<div id="container">
+<div class="container">
   <form action="register.php" method="POST" id='register_form'>
     <h2>Register for an account</h2>
     <br />
